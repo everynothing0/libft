@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memset.c                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 22:59:59 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/14 23:50:36 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/17 01:27:56 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 void	*memset(void *s, int c, size_t n)
 {
-	unsigned char	*str;
+	size_t	i;
+	char	*cr;
 
-	str = (unsigned char *str);
-	while (n--)
-		*str++ = (unsigned char)c;
+	i = 0;
+	cr = (char *)s;
+	while (i < n)
+	{
+		cr[i] = c;
+		i++;
+	}
 	return (s);
 }

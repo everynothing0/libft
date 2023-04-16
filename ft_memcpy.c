@@ -6,7 +6,7 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 00:03:28 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/15 00:34:16 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/17 01:38:02 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 void	*memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char	*d;
-	unsigned char	*s;
+	size_t	len;
+	const char	*s;
+	unsigned char *d;
 
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	if (!dest && !src)
-		return (dest);
-	while (n--)
-		*d++ = *s++;
+	if (!dest)
+		return (NULL);
+	d = dest;
+	s = src;
+	len = 0;
+	while (len < n)
+	{
+		d[len] = s[len];
+		len++;
+	}
 	return (dest);
 }

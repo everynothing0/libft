@@ -6,7 +6,7 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 22:40:16 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/16 22:48:21 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:51:30 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	const char	*str;
-	
+
 	str = s;
 	while (*s)
 		s++;

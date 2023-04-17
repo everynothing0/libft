@@ -6,7 +6,7 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 01:32:39 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/17 01:25:47 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:49:49 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	if (j < size)
 		dst[i + j] = '\0';
 	while (src[i])
-		i++; 
+		i++;
 	return (i + j);
 }	

@@ -1,12 +1,11 @@
-# **************************************************************************** #
-#                                                                              #
+
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 00:00:24 by cde-voog          #+#    #+#              #
-#    Updated: 2023/04/17 00:06:46 by cde-voog         ###   ########.fr        #
+#    Updated: 2023/04/17 00:23:16 by cde-voog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +15,9 @@ SRC = ft_*.c
 MAINFILE = main.c
 OUTPUT = -o tests
 LIBRARY = rc libft.a ft_*.o
-NAME = libft
-OBJ = $(src:.c=.o)
+NAME = libft.a
+OBJ = $(SRC:.c=.o)
+
 CLEANCMD = rm -rf *.o
 FCLEANCMD = rm -rf *.a
 

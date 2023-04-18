@@ -6,29 +6,27 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 01:52:06 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/18 02:04:53 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/18 03:04:24 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	j;
 	int	res;
 
 	i = 0;
-	j = 0;
+	j = 1;
 	res = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-		{
-			j = j * -1;
-		}
+			j = -1;
 		i++;
 	}
 	while (str[i] >= 48 && str[i] <= 57)

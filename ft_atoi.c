@@ -5,36 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 23:04:19 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/11 23:19:00 by cde-voog         ###   ########.fr       */
+/*   Created: 2023/04/18 01:52:06 by cde-voog          #+#    #+#             */
+/*   Updated: 2023/04/18 02:04:53 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	j;
-	int	k;
+	int	res;
 
 	i = 0;
 	j = 0;
-	k = 0;
+	res = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			s++;
+		{
+			j = j * -1;
+		}
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= 48 && str[i] <= 57)
 	{
-		j = j * 10 + str[i] - '0';
+		res = res * 10 + (str[i] - 48);
 		i++;
 	}
-	if (k % 2)
-		return (-j);
-	return (j);
+	return (res * j);
 }

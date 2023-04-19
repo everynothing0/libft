@@ -9,36 +9,39 @@
 #                                                                              #
 # **************************************************************************** #
 
-COMPILE = gcc
-CFLAG = -Wall -Werror -Wextra
-SRC = ft_*.c
-MAINFILE = main.c
-OUTPUT = -o tests
-LIBRARY = rc libft.a ft_*.o
+
 NAME = libft.a
-OBJ = $(SRC:.c=.o)
 
-CLEANCMD = rm -rf *.o
-FCLEANCMD = rm -rf *.a
+SRC = $(shell find . -name "*.c" ! -name "*_bonus.c")
 
+OBJ = ${SRC:.c=.o}
 
-#compile all ft at once and put ion a library
-$(NAME):$(OBJ)
-	$(COMPILE) $(CFLAG) -c $(SRC)
-	ar rcs libft.a ft_*.o
+CFLAGS = -Wall -Werror -Wextra
 
-all:$(NAME)
+COMPILE = gcc $(CFLAGS) -c
 
-#to compile only one ft at the time
-%.o:%.c
-	$(COMPILE) $(CFLAG) -c $< -o $@
+LIB = ar rc $(NAME)
 
-#clear all lib file
+RANLIB = ranlib $(NAME)
+
+REMOVE = rm -f
+
+all: $(NAME)
+
+$(NAME):
+	@$(COMPILE) $(SRC)
+	@$(LIB) $(OBJ)
+	@$(RANLIB)
+
 clean:
-	$(CLEANCMD)
+	@$(REMOVE) $(OBJ)
 
-#clear all .o file
 fclean: clean
-	$(FCLEANCMD)
+	@$(REMOVE) $(NAME)
 
 re: fclean all
+
+so:
+	gcc -fPIC -c $(SRC)
+	gcc -shared -Wl,-soname,libft.so -o libft.so *.o
+.PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 00:25:19 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/19 00:27:59 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/20 03:03:17 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_calloc(size_t n, size_t size)
 {
 	size_t	i;
-	char		*a;
+	char	*a;
 
 	i = n * size;
 	a = (malloc(i));

@@ -6,26 +6,26 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 15:58:51 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/20 17:01:01 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/20 20:59:48 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	len;
-	size_t	i;
+	int				i;
 	char	*ret;
 
-	len = ft_strlen(s);
 	i = 0;
 	if (!s || !f)
-		return ;
-	ret = (char *)malloc(sizeof(char) * (len + 1));
+		return (NULL);
+	ret = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (!ret)
-		return ;
-	while (i < len)
+		return (NULL);
+	while (s[i])
 	{
-		ret[i] = f(i, &s[i]);
+		ret[i] = f(i, s[i]);
 		i++;
 	}
 	ret[i] = '\0';

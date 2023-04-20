@@ -6,7 +6,7 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 21:27:40 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/19 21:30:29 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/20 02:02:35 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -214783648)
 	{
-		write(fd, -214783648, 11);
+		write(fd, "-214783648", 11);
 		return ;
 	}
 	if (n == 0)
@@ -33,7 +33,7 @@ void	ft_putnbr_fd(int n, int fd)
 		n = n + 48;
 	else if (n != 0)
 	{
-		ft_putnbr_fd(n / 10. fd);
+		ft_putnbr_fd(n / 10, fd);
 		n = (n % 10) + 48;
 	}
 	write(fd, &n, 1);

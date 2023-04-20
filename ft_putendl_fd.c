@@ -6,19 +6,17 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:04:20 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/19 16:07:13 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/20 02:27:17 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_putendl_fd(char *s, int fd)
 {
-	const char	n = '\n';
-
-	if (!s)
+	if (s == NULL)
 		return ;
-	while (*s != '\0')
-	{
-		write(fd, s, ft_strlen(s));
-		write(fd, &n, 1);
-	}
+	while (*s)
+		write(fd, s++, 1);
+	write(fd, "\n", 1);
 }

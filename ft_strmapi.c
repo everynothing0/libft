@@ -6,7 +6,7 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 15:58:51 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/20 20:59:48 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/20 21:47:28 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int				i;
+	int		i;
 	char	*ret;
 
 	i = 0;

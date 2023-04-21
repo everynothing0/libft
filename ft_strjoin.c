@@ -6,7 +6,7 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:29:27 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/21 16:08:23 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/21 19:03:26 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	res = malloc(sizeof(char) + (ft_strlen(s1) + (ft_strlen(s2) + 1)));
+	res = malloc(sizeof(char) * (ft_strlen(s1) + (ft_strlen(s2) + 1)));
 	if (!res)
 		return (NULL);
 	while (s1[i] != '\0' && s1[i] != '\0')

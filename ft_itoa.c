@@ -6,7 +6,7 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 21:53:38 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/22 03:00:12 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/22 03:02:04 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static int	ft_len(int n)
 
 char	*ft_itoa(int n)
 {
-	int						i;
-	int						nb;
-	char				*res;
+	int		i;
+	int		nb;
+	char	*res;
 
 	nb = n;
 	n = ft_len(n);

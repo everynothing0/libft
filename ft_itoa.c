@@ -6,7 +6,7 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 21:53:38 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/23 01:05:50 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/23 01:45:13 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_numlen(int n)
 		len++;
 		n /= 10;
 	}
-	 return (len);
+	return (len);
 }
 
 char	*ft_itoa(int n)
@@ -40,7 +40,7 @@ char	*ft_itoa(int n)
 	if (n == 0)
 		return (ft_strdup("0"));
 	if (n == -2147483648)
-   		return (ft_strdup("-2147483648"));
+		return (ft_strdup("-2147483648"));
 	len = ft_numlen(n);
 	if (n < 0)
 		nbr = -n;

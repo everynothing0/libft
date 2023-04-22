@@ -6,55 +6,56 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 21:53:38 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/22 03:02:04 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/23 01:05:50 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static int	ft_len(int n)
+static int	ft_numlen(int n)
 {
-	int	i;
+	int	len;
 
-	i = 0;
+	len = 0;
 	if (n < 0)
 	{
+		len++;
 		n *= -1;
-		i++;
 	}
-	if (n > 0)
+	while (n > 0)
 	{
+		len++;
 		n /= 10;
-		i++;
 	}
-	return (i);
+	 return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	int		i;
-	int		nb;
-	char	*res;
+	char	*str;
+	int		len;
+	long	nbr;
 
-	nb = n;
-	n = ft_len(n);
-	res = malloc(sizeof(char) * (ft_len + 1));
-	if (!res)
-		return (NULL);
-	if (nb == 0)
-	{
+	if (n == 0)
 		return (ft_strdup("0"));
-	}
-	if (nb < 0)
-		nb -= nb;
-	i--;
-	while (nb)
+	if (n == -2147483648)
+   		return (ft_strdup("-2147483648"));
+	len = ft_numlen(n);
+	if (n < 0)
+		nbr = -n;
+	else
+		nbr = n;
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	while (--len >= 0)
 	{
-		res[i--] = nb % 10 + '0';
-		nb /= 10;
+		str[len] = '0' + nbr % 10;
+		nbr /= 10;
 	}
 	if (n < 0)
-		res[i] = '-';
-	res[ft_len(n)] = 0;
-	return (res);
+		str[0] = '-';
+	return (str);
 }

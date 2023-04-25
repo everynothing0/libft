@@ -6,65 +6,70 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 21:35:48 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/24 03:50:58 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/25 03:42:07 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-static size_t	count_words(const char *s, char c)
-{
-	size_t	words;
 
-	words = 0; // = 1
-	while (*s)
+static int	count_words(const char *str, char c)
+{
+	int	i;
+	int	trigger;
+
+	i = 0;
+	trigger = 0;
+	while (*str)
 	{
-		if (*s != c)
+		if (*str != c && trigger == 0)
 		{
-			++words;
-			while (*s && *s != c)
-				++s; // s++
+			trigger = 1;
+			i++;
 		}
-		else
-			++s; // s++
+		else if (*str == c)
+			trigger = 0;
+		str++;
 	}
-	return (words);
+	return (i);
 }
 
-static size_t	copy_word(char **dst, char *src, char c)
+static char	*word_dup(const char *str, int start, int finish)
 {
-	size_t	len;
+	char	*word;
+	int		i;
 
-	len = 0;
-	while (*src && *src != c)
-	{
-		*(*dst)++ = *src++;
-		++len; // acces caracter actuel de la chaine de dest et increment en +
-	}
-	return (len);
+	i = 0;
+	word = malloc((finish - start + 1) * sizeof(char));
+	while (start < finish)
+		word[i++] = str[start++];
+	word[i] = '\0';
+	return (word);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	nb_words;
-	char	**res;
+	size_t	i;
+	size_t	j;
+	int		index;
+	char	**split;
 
-	if (!s)
-		return (NULL);
-	nb_words = count_words(s, c);
-	res = (char **)malloc((nb_words + 1) * sizeof(char *));
-}
-
-//char	**ft_split(char const *s, char c)
-//{
-//}
-
-int	main(void)
-{
-	const char *s = "Hello World! Yellow"; // chaine de caractere
-	char delimiter = ' '; // delimiteur il en exist 5
-
-	size_t word_count = count_words(s, delimiter); // appel de la fomction count_words
-	printf(count_words("number of words in the string \"%s\" est : %zu\n", s, word_count )); // affichage
-	return (0);
+	split = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!s || !split)
+		return (0);
+	i = 0;
+	j = 0;
+	index = -1;
+	while (i <= ft_strlen(s))
+	{
+		if (s[i] != c && index < 0)
+			index = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
+		{
+			split[j++] = word_dup(s, index, i);
+			index = -1;
+		}
+		i++;
+	}
+	split[j] = NULL;
+	return (split);
 }

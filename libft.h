@@ -6,7 +6,7 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 23:01:52 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/25 04:34:48 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/25 22:30:39 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef struct	s_list
 {
-	void	*content;
+	void			*content;
 	struct s_list	*next;
 }	t_list;
 
@@ -58,9 +58,11 @@ size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 t_list	*ft_lstnew(void *content);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstadd_front(void ft_lstadd_front(t_list **lst, t_list *new));
-t_list	ft_lstsize(int ft_lstsize(t_list *lst));
-t_list	ft_lstadd_back(void ft_lstadd_back(t_list **lst, t_list *new));
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstclear(t_list **lst, void (*del) (void *));
 
 #endif

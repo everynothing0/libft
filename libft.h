@@ -6,7 +6,7 @@
 /*   By: cde-voog <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 23:01:52 by cde-voog          #+#    #+#             */
-/*   Updated: 2023/04/26 03:19:14 by cde-voog         ###   ########.fr       */
+/*   Updated: 2023/04/26 20:26:28 by cde-voog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-
-typedef struct	s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
 
 int		ft_atoi(const char *str);
 int		ft_isalnum(int c);
@@ -57,6 +51,13 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}			t_list;
+
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
